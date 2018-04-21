@@ -1,7 +1,6 @@
 //Node Dependencies
 var express = require("express");
 var bodyParser = require("body-parser");
-//devar path = require('path');
 
 //Module Dependences
 var apiRoutes = require("./app/routing/apiRoutes.js");
