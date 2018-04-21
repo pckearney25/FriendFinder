@@ -9,13 +9,20 @@ module.exports = function(app) {
     //code for manipulating apiReq
     var userData = apiReq.body;
     console.log(userData);
+
+    for (i = 0; i < userData.scores.length; i++) {
+      userData.scores[i] = parseInt(userData.scores[i]);
+    }
+    console.log(userData);
+
     //turn json into js object vis JSON.parse()
     //convert the values in the scores array into integers
     //find the best match
-
+    friends.push(userData);
+    console.log(friends);
     //dummy value for now
     var bestMatch = friends[9];
-    console.log(bestMatch);
+    //console.log(bestMatch);
 
     apiRes.json(bestMatch);
   });
