@@ -62,3 +62,4 @@ var friends = [
 module.exports = friends;
 
 //Tested in node via: console.log(friends)
+//Has no requirements
