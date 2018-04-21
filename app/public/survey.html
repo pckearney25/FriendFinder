@@ -172,7 +172,7 @@
                         </form>
                         <br>
                         <div class="text-right">
-                            <button type="submit" class="btn btn-primary btn-md" id="submit-btn">
+                            <button type="submit" class="btn btn-primary btn-md" id="survey-submit">
                                 <i class="far fa-smile"></i> Submit</button>
                         </div>
                     </div>
@@ -193,7 +193,7 @@
 
     <!--MODAL HTML-->
 
-    <div class="modal" id="result_modal" tabindex="-1" role="dialog">
+    <div class="modal" id="result-modal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -203,9 +203,9 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p id="result_name">Patrick Kearney</p>
-                    <img id="result_img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvaJkumkGOsMQqgA97lKuD1I8pbX8Wnvu--uLpZq29kWQLRz0m"
-                        style="height:300px;width:300px;" alt="">
+                    <p id="result-name">Patrick Kearney</p>
+                    <img id="result-img" src="https://i.pinimg.com/originals/79/01/26/7901264da730cd8b5fbd58dd3d542f5d.jpg" style="height:300px;width:300px;"
+                        alt="">
                 </div>
                 <div class="modal-footer ">
                     <button type="button " class="btn btn-secondary " data-dismiss="modal">Close</button>
@@ -213,10 +213,50 @@
             </div>
         </div>
     </div>
-    <script>
-        $("#result_modal").modal("show");
 
+    <script type="text/javascript">
+        // Question: What does this code do?
+        $("#survey-submit").on("click", function (event) {
+            event.preventDefault();
+
+            //adds the 
+            var totalSurveyQuestions = 10
+            var surveyScores = [];
+
+            surveyScores.push($("#question1").val());
+            surveyScores.push($("#question2").val());
+            surveyScores.push($("#question3").val());
+            surveyScores.push($("#question4").val());
+            surveyScores.push($("#question5").val());
+            surveyScores.push($("#question6").val());
+            surveyScores.push($("#question7").val());
+            surveyScores.push($("#question8").val());
+            surveyScores.push($("#question9").val());
+            surveyScores.push($("#question10").val());
+
+            console.log(surveyScores)
+
+
+
+            var userSurvey = {
+                name: $("#name").val().trim(),
+                photo: $("#friend_photo").val().trim(),
+                scores: surveyScores,
+            };
+
+            console.log(userSurvey);
+
+            // TODO: sends the userSurvey to the API and displays the bestMatch data in the modal.
+            $.post("/api/friends", userSurvey)
+                .then(function (data) {
+                    console.log(data);
+                    //console.log(data.name);
+                    //console.log(data.photo);
+                    $("#result-modal").modal("show");
+                });
+        });
     </script>
+
 </body>
 
 </html>

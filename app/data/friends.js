@@ -27,7 +27,7 @@ var friends = [
     name: "Katy",
     photo:
       "https://specials-images.forbesimg.com/imageserve/593b26514bbe6f1b730b693a/416x416.jpg?background=000000&cropX1=111&cropX2=2108&cropY1=4&cropY2=2000",
-    scores: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    scores: [3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
   },
   {
     name: "Leia",
